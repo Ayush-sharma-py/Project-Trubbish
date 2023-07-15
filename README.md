@@ -46,7 +46,7 @@ This is a machine learning program implemented in Python using TensorFlow to cla
 
 ## File Descriptions
 - `zero-indexed-files.txt`: A text file containing image directories and their corresponding labels. Update this file with the correct image paths and labels before running the program.
-- `trash_classification.py`: The main Python script that implements the machine learning program using TensorFlow. It trains the model and provides the `recognise()` function for image classification.
+- `main.py`: The main Python script that implements the machine learning program using TensorFlow. It trains the model and provides the `recognise()` function for image classification.
 
 ## Model Architecture
 The neural network model used for trash classification consists of the following layers:
