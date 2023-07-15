@@ -37,7 +37,7 @@ for i in range(0,len(training_image_label)):
 '''
 for i in training_image_directory:
     image = Image.open(i)
-    image = image.resize((28,37))
+    image = image.resize((37,28))
     image = image.save("Resize\\" + i)
 '''
 
@@ -80,10 +80,10 @@ cp_callback = keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
                                                  verbose=0)
 os.chdir("..\\")
 
-# Loads stored weights
-model.load_weights(checkpoint_path)
+# Loads stored weights (run after training once and reduce the epochs to 1)
+#model.load_weights(checkpoint_path)
 # Command to train the neural network
-model.fit(training_set, training_set_labels, epochs= 1,callbacks=cp_callback,verbose=1)
+model.fit(training_set, training_set_labels, epochs = 100,callbacks=cp_callback,verbose=1)
 
 # Run this function on a folder directory to classify images in it
 def recognise(folder_directory):
@@ -96,7 +96,43 @@ def recognise(folder_directory):
     for i in range(0, len(prediction_directories)):
         try:
             image = Image.open(folder_directory + prediction_directories[i])
-            image = image.resize((28,37))
+            image = image.resize((37,28))
+            prediction_directories[i] = "cache\\" + prediction_directories[i]
+            image = image.save(prediction_directories[i])
+        except:
+            pass
+
+    for i in prediction_directories:
+        try:
+            prediction_images.append(img.imread(i))
+        except:
+            pass
+
+    testing_set = numpy.array(prediction_images)
+
+    probability_model = keras.Sequential([model, keras.layers.Softmax()])
+    predictions = probability_model.predict(testing_set)
+    
+    for i in os.listdir("cache\\"):
+        try:
+            os.remove("cache\\" + i)
+        except:
+            pass
+
+    return label_type[numpy.argmax(predictions)]
+
+# Run this function when data is not resized
+def regular_recognise(folder_directory):
+    prediction_directories = []
+    prediction_images = []
+    testing_set = []
+    for i in os.listdir(folder_directory):
+        prediction_directories.append(i)
+
+    for i in range(0, len(prediction_directories)):
+        try:
+            image = Image.open(folder_directory + prediction_directories[i])
+            image = image.resize((512,384))
             prediction_directories[i] = "cache\\" + prediction_directories[i]
             image = image.save(prediction_directories[i])
         except:
