@@ -75,7 +75,40 @@ Please ensure that the folder you provide to the `recognise()` function contains
 This machine learning model for trash classification has its limitations and may not achieve perfect accuracy. It's always recommended to validate the predictions and use human judgment for critical decisions.
 
 ## Contact
-Email ayushsharma14@gmail.com for suggesting improvements and reporting bugs
+Email ayushsharma14@gmail.com if there is some issue with running the program or to reporting bugs
 
+## Troubleshooting
+
+# Permission Denied
+To troubleshoot the "permission denied" error, you can try running the program with administrative rights. Here's how you can do it:
+
+Right-click on the Python script (.py file) that you want to run.
+From the context menu, select "Run as administrator". This will execute the script with administrative privileges.
+Running the program with administrative rights may help resolve any permission-related issues that are causing the "permission denied" error.
+
+If you're using an integrated development environment (IDE) like PyCharm or Visual Studio Code, you can launch the IDE with administrative rights, and then run the program within the IDE.
+
+Note that running a program with administrative rights should be done with caution, as it grants the program elevated privileges on your system.
+
+# Training the model without resizing the images
+Running the Program without Image Resizing
+By default, the provided program resizes the input images to match the input size expected by the model. This resizing helps to speed up the training process and allows the program to handle images of different sizes consistently.
+
+However, if you prefer to run the program without resizing the images, it is possible to do so. Keep in mind that not resizing the images can significantly increase the processing time and memory requirements, especially if your images have large dimensions.
+
+To run the program without resizing the images, you can modify the code in the main.py script. Look for the section where the images are loaded and resized, and comment out or remove the lines of code responsible for resizing the images. Here's an example:
+
+python
+Copy code
+# Load and resize images
+# image = Image.open(image_path)
+# image = image.resize((img_width, img_height))
+By removing or commenting out these lines, the program will load the images without resizing them. However, keep in mind that you will need to ensure that all your images have the same dimensions as expected by the model.
+
+It's worth noting that running the program without resizing the images can result in improved accuracy during testing, as the model will be trained and tested on the original image sizes. However, it may come at the cost of increased computation time and memory usage, particularly if your dataset contains large images.
+
+Before opting for this approach, consider the computational resources available to you and evaluate the trade-off between accuracy and processing time.
+
+#
 ## License
 This project is licensed under the [MIT License](LICENSE).

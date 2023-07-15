@@ -41,7 +41,7 @@ for i in training_image_directory:
     image = image.save("Resize\\" + i)
 '''
 
-# Code to use the resized images comment out if original dataset for training is preferred (Will increase training time)
+# Code to use the resized images, comment out if original dataset for training is preferred (Will increase training time)
 # Training without resizing greatly increases testing accuracy with farily similar training accuracy
 os.chdir("Resize\\")
 
