@@ -75,7 +75,7 @@ Please ensure that the folder you provide to the `recognise()` function contains
 This machine learning model for trash classification has its limitations and may not achieve perfect accuracy. It's always recommended to validate the predictions and use human judgment for critical decisions.
 
 ## Contact
-Email ayushsharma14@gmail.com if there is some issue with running the program or to report bugs
+Email ayushsharma14@gmail.com if there is some issue with running the program or to report bugs.
 
 ## Troubleshooting
 
