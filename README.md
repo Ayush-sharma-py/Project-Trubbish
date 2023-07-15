@@ -98,11 +98,11 @@ However, if you prefer to run the program without resizing the images, it is pos
 
 To run the program without resizing the images, you can modify the code in the main.py script. Look for the section where the images are loaded and resized, and comment out or remove the lines of code responsible for resizing the images. Here's an example:
 
-python
-Copy code
+```
 # Load and resize images
 # image = Image.open(image_path)
 # image = image.resize((img_width, img_height))
+```
 By removing or commenting out these lines, the program will load the images without resizing them. However, keep in mind that you will need to ensure that all your images have the same dimensions as expected by the model.
 
 It's worth noting that running the program without resizing the images can result in improved accuracy during testing, as the model will be trained and tested on the original image sizes. However, it may come at the cost of increased computation time and memory usage, particularly if your dataset contains large images.
