@@ -119,5 +119,3 @@ def recognise(folder_directory):
         except:
             pass
     return label_type[numpy.argmax(predictions)]
-
-print(recognise("prediction\\"))
