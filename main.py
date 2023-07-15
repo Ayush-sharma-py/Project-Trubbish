@@ -80,9 +80,10 @@ cp_callback = keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
                                                  verbose=0)
 os.chdir("..\\")
 
-# Loads stored weights (run after training once and reduce the epochs to 1)
+#IMPORTANT#
+# After running the program once remove the comment from next line to reuse the model trained before
 #model.load_weights(checkpoint_path)
-# Command to train the neural network
+# Command to train the neural network (Change epochs = 1 when loading the model from store weights)
 model.fit(training_set, training_set_labels, epochs = 100,callbacks=cp_callback,verbose=1)
 
 # Run this function on a folder directory to classify images in it
