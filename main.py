@@ -5,6 +5,12 @@ import numpy
 import matplotlib.image as img
 from PIL import Image
 
+# Correcting the working directory when downloaded from git 
+try:
+    os.chdir("PROJECT-TRUBBISH-MAIN\\")
+except:
+    pass
+
 # Opening the file containing all the image directory and their training labels
 zero_indexed_file = open("zero-indexed-files.txt",'r')
 training_image_directory = []
