@@ -79,7 +79,7 @@ Email ayushsharma14@gmail.com if there is some issue with running the program or
 
 ## Troubleshooting
 
-# Permission Denied
+### Permission Denied
 To troubleshoot the "permission denied" error, you can try running the program with administrative rights. Here's how you can do it:
 
 Right-click on the Python script (.py file) that you want to run.
@@ -90,7 +90,7 @@ If you're using an integrated development environment (IDE) like PyCharm or Visu
 
 Note that running a program with administrative rights should be done with caution, as it grants the program elevated privileges on your system.
 
-# Training the model without resizing the images
+### Training the model without resizing the images
 Running the Program without Image Resizing
 By default, the provided program resizes the input images to match the input size expected by the model. This resizing helps to speed up the training process and allows the program to handle images of different sizes consistently.
 
@@ -109,6 +109,5 @@ It's worth noting that running the program without resizing the images can resul
 
 Before opting for this approach, consider the computational resources available to you and evaluate the trade-off between accuracy and processing time.
 
-#
 ## License
 This project is licensed under the [MIT License](LICENSE).
