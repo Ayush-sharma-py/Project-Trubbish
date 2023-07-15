@@ -34,6 +34,8 @@ This is a machine learning program implemented in Python using TensorFlow to cla
 
    This will train the neural network using the provided image dataset. The trained model will be saved in the `training_1` directory.
 
+   With the sample data, the training accuracy achieved was greater than 99%, and the testing accuracy on unseen data was greater than 85%.
+
 5. After training, you can use the `recognise()` function to classify images in a given folder directory. Simply provide the folder path as an argument to the function call. For example:
    ```python
    result = recognise("prediction/")
@@ -55,8 +57,12 @@ The neural network model used for trash classification consists of the following
 5. Dense Layers: Fully connected layers that learn high-level representations of the input features.
 6. Output Layer: Produces logits (raw predictions) for each class label.
 
+The neural network was sourced from [Keras Classification](https://www.tensorflow.org/tutorials/images/classification)
+
 ## Training
 The model is trained using the Adam optimizer and the Sparse Categorical Crossentropy loss function. The training process involves iterating over the training set for a specified number of epochs. After each epoch, the model's weights are saved using checkpoints to allow for resuming training or using the trained model for predictions later.
+
+With the provided sample data, the model achieved a training accuracy of over 99% and a testing accuracy of over 85% on unseen data.
 
 ## Prediction
 The `recognise()` function takes a folder directory as input and classifies the images within that folder. It resizes the images to match the input size expected by the model and then uses the trained model to predict the labels for the images. The function returns the predicted label for the given images.
