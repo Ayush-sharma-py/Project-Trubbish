@@ -114,11 +114,8 @@ def recognise(folder_directory):
     probability_model = keras.Sequential([model, keras.layers.Softmax()])
     predictions = probability_model.predict(testing_set)
     
-    for i in os.listdir("cache\\"):
-        try:
-            os.remove("cache\\" + i)
-        except:
-            pass
+    for i in prediction_directories:
+        os.remove(i)
 
     return label_type[numpy.argmax(predictions)]
 
@@ -150,9 +147,7 @@ def regular_recognise(folder_directory):
     probability_model = keras.Sequential([model, keras.layers.Softmax()])
     predictions = probability_model.predict(testing_set)
 
-    for i in os.listdir("cache\\"):
-        try:
-            os.remove("cache\\" + i)
-        except:
-            pass
+    for i in prediction_directories:
+        os.remove(i)
+
     return label_type[numpy.argmax(predictions)]
