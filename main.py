@@ -71,7 +71,6 @@ model = keras.Sequential([
 
 # Compiling the model to be trained
 model.compile(optimizer = "adam", loss = keras.losses.SparseCategoricalCrossentropy(from_logits = True), metrics = ['accuracy'])
-
 # Making checkpoints for trained model
 checkpoint_path = "training_1/cp.ckpt"
 checkpoint_dir = os.path.dirname(checkpoint_path)
@@ -81,8 +80,10 @@ cp_callback = keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
                                                  verbose=0)
 os.chdir("..\\")
 
+# Loads stored weights
+model.load_weights(checkpoint_path)
 # Command to train the neural network
-model.fit(training_set, training_set_labels, epochs= 25,callbacks=cp_callback,verbose=1)
+model.fit(training_set, training_set_labels, epochs= 1,callbacks=cp_callback,verbose=1)
 
 # Run this function on a folder directory to classify images in it
 def recognise(folder_directory):
@@ -120,4 +121,3 @@ def recognise(folder_directory):
     return label_type[numpy.argmax(predictions)]
 
 print(recognise("prediction\\"))
-
